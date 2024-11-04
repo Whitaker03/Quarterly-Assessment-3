@@ -1,20 +1,20 @@
 import sqlite3
 
-def create_law2810():
+def create_mkt3400():
     try:
         # Connect to the existing questions.db
         conn = sqlite3.connect('questions.db')
         cursor = conn.cursor()
 
-        # Check if the LAW2810 table already exists
-        cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='LAW2810';")
+        # Check if the MKT3400 table already exists
+        cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='MKT3400';")
         if cursor.fetchone():
-            print("LAW2810 table already exists.")
+            print("MKT3400 table already exists.")
         else:
-            # Create LAW2810 table
-            print("Creating LAW2810 table...")
+            # Create MKT3400 table
+            print("Creating MKT3400 table...")
             cursor.execute('''
-                CREATE TABLE LAW2810 (
+                CREATE TABLE MKT3400 (
                     id INTEGER PRIMARY KEY,
                     question TEXT,
                     option_a TEXT,
@@ -25,30 +25,30 @@ def create_law2810():
                 )
             ''')
 
-            # List of business law and ethics questions with options and correct answers
-            law_questions = [
-                ("Which document is essential for legally forming a corporation?", "Contract", "Bylaws", "Articles of Incorporation", "Code of Conduct", "c"),
-                ("What is the primary role of a business contract?", "To create a partnership", "To establish legal obligations", "To increase profit", "To monitor employees", "b"),
-                ("Which law protects consumers from deceptive business practices?", "Environmental Law", "Consumer Protection Law", "Labor Law", "Tax Law", "b"),
-                ("What does 'ethics' in business primarily refer to?", "Company profitability", "Corporate structure", "Moral principles", "Market position", "c"),
-                ("Which agency oversees workplace safety in the U.S.?", "OSHA", "FDA", "SEC", "IRS", "a"),
-                ("What is considered a conflict of interest in business?", "Working overtime", "Hiring employees", "Personal gain from decisions", "Following company policies", "c"),
-                ("What is intellectual property?", "Physical assets of a business", "Innovative ideas or creations", "A type of contract", "Public domain material", "b"),
-                ("Which law protects employees against discrimination?", "Tax Law", "Employment Law", "Intellectual Property Law", "Corporate Law", "b"),
-                ("What is the purpose of antitrust laws?", "To promote competition", "To protect intellectual property", "To monitor employee conduct", "To standardize contracts", "a"),
-                ("Which term describes a legal obligation to act in another's best interest?", "Trustworthiness", "Loyalty", "Fiduciary duty", "Confidentiality", "c")
+            # List of marketing questions with options and correct answers
+            marketing_questions = [
+                ("What is the primary goal of marketing?", "To increase profit", "To satisfy customer needs", "To advertise products", "To expand globally", "b"),
+                ("Which 'P' in the marketing mix refers to the distribution of products?", "Product", "Price", "Promotion", "Place", "d"),
+                ("What is a target market?", "A segment of consumers to focus on", "A general consumer group", "A type of product", "A pricing strategy", "a"),
+                ("Which marketing mix element includes advertising and sales promotion?", "Product", "Place", "Promotion", "Price", "c"),
+                ("What does 'branding' mean in marketing?", "Lowering prices", "Creating a unique identity", "Expanding into new markets", "Hiring new employees", "b"),
+                ("What is market segmentation?", "Setting prices based on demand", "Dividing a market into distinct groups", "Creating new products", "Promoting a brand", "b"),
+                ("Which term describes the end customer for a product?", "Consumer", "Vendor", "Supplier", "Manufacturer", "a"),
+                ("What is the purpose of a SWOT analysis?", "To price products", "To evaluate strengths, weaknesses, opportunities, and threats", "To survey customer satisfaction", "To create a marketing budget", "b"),
+                ("Which pricing strategy involves setting high prices initially?", "Penetration pricing", "Cost-plus pricing", "Skimming pricing", "Competitive pricing", "c"),
+                ("What is a 'product lifecycle'?", "The process of manufacturing a product", "The duration of a product's development", "Stages a product goes through in the market", "A marketing budget plan", "c")
             ]
 
-            # Insert questions into the LAW2810 table
-            print("Inserting data into LAW2810 table...")
+            # Insert questions into the MKT3400 table
+            print("Inserting data into MKT3400 table...")
             cursor.executemany('''
-                INSERT INTO LAW2810 (question, option_a, option_b, option_c, option_d, correct_option) 
+                INSERT INTO MKT3400 (question, option_a, option_b, option_c, option_d, correct_option) 
                 VALUES (?, ?, ?, ?, ?, ?)
-            ''', law_questions)
+            ''', marketing_questions)
 
             # Commit the transaction
             conn.commit()
-            print("LAW2810 table created and data inserted successfully.")
+            print("MKT3400 table created and data inserted successfully.")
 
     except sqlite3.Error as e:
         print(f"An error occurred: {e}")
@@ -57,5 +57,5 @@ def create_law2810():
         # Close the connection
         conn.close()
 
-# Run the function to create LAW2810
-create_law2810()
+# Run the function to create MKT3400
+create_mkt3400()
