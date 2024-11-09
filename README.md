@@ -6,4 +6,4 @@ format, nor does reading the data stored inside the database (though those
 files are obviously needed for you to manage the program). In other words,
 you’re the programmer. You set up the database in the back-end. The user is
 given a GUI to interact with. You should be able to give this GUI to a user that
-does not have any coding knowledge. The courses are DS3850-intro to python. DS3860-Business Database Management. DS3810-Programming Logic and analytic thinking. LAW2810- Business legal enviroment and ethics. MKT3400-Priciples of marketing. 
+does not have any coding knowledge. The courses are DS3850-intro to python. DS3860-Business Database Management. DS3810-Programming Logic and analytic thinking. LAW2810- Business legal enviroment and ethics. MKT3400-Priciples of marketing. addDatatoDB.py and dbfox.py are both database implementation files. app.py is the run application file. Questionmanager organizes the questions. readDB.py reads the tables for correctness. 
